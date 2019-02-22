@@ -15,7 +15,7 @@ public:
         return name;
     };
 
-    bool isEmpty(){
+    bool isEmpty(){ // helper method that determines if the entire path has been read 
         if(numOfFolders == 0)
             return true;
         else
