@@ -2,6 +2,30 @@
 #include <fstream>
 #include <string>
 
+class dirTokenizer{
+public:
+    dirTokenizer(std::string fullname): fullname(fullname+"/"), i(0), numOfFolders(std::count(fullname.begin(), fullname.end(), '/')){};
+    std::string next(){
+        int j = fullname.find("/", i+1);
+        if(j == -1) return "";
+        std::string name = fullname.substr(i+1, j-i-1);
+        numOfFolders--;
+        i = j;
+        return name;
+    };
+
+    bool isEmpty(){ // helper method that determines if the entire path has been read
+        if(numOfFolders == 0)
+            return true;
+        else
+            return false;
+    };
+
+    std::string fullname;
+    int i;
+    int numOfFolders;
+
+};
 
 class dirTree{
 public:
@@ -86,51 +110,31 @@ public:
 
        }
 
-       void printTree(){
-        this->root->print(1);
+       void printTree(std::string path = "/home" ){
+        dirNode *temp = root->findNode(path);
+        temp->print(1);
     }
     dirNode * root;
 };
 
 
-class dirTokenizer{
-public:
-    dirTokenizer(std::string fullname): fullname(fullname+"/"), i(0), numOfFolders(std::count(fullname.begin(), fullname.end(), '/')){};
-    std::string next(){
-        int j = fullname.find("/", i+1);
-        if(j == -1) return "";
-        std::string name = fullname.substr(i+1, j-i-1);
-        numOfFolders--;
-        i = j;
-        return name;
-    };
 
-    bool isEmpty(){ // helper method that determines if the entire path has been read 
-        if(numOfFolders == 0)
-            return true;
-        else
-            return false;
-    };
 
-    std::string fullname;
-    int i;
-    int numOfFolders;
-
-};
-
-int main(){
+int main(int argc, char* argv[]){
 
     dirTree *dirTree1 = new dirTree();
 
     std::ifstream inStream("ITUnix");
     std::string aline;
+
     std::string currentPath;
 
     if(inStream.is_open()){
-        for(int i = 0; i < 1000; i++)  // only work with the first 20 lines while testing
+//        for(std::string line; getline(inStream, line);)
+        for(int i =0; i < 2000; i ++)
         {
             getline(inStream, aline);
-            if(aline.back() == ':'){ // if last char in line is a : , it is a directory
+            if(aline.back() == ':'){ // if last char in aline is a : , it is a directory
                 currentPath = aline.substr(0, aline.length()-1);
 
                 // create tokenizer of path name
@@ -149,7 +153,13 @@ int main(){
         }
     }
 
-    dirTree1->printTree();
+
+    if(!dirTree1->root->findNode(argv[1])){
+        std::cout << "This path does not exist";
+        return 0;
+    }
+
+    dirTree1->printTree(argv[1]);
 
 
     inStream.close();
