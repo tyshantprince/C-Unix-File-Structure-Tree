@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/Users/tyshanprince/Documents/spring19/it279/Assignment2/list.cpp" "/Users/tyshanprince/Documents/spring19/it279/Assignment2/cmake-build-debug/CMakeFiles/Assignment2.dir/list.cpp.o"
+  "/Users/tyshanprince/Documents/spring19/it279/Asg2/list.cpp" "/Users/tyshanprince/Documents/spring19/it279/Asg2/cmake-build-debug/CMakeFiles/Assignment2.dir/list.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "AppleClang")
 
