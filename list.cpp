@@ -51,22 +51,43 @@ public:
 
         };
         dirNode* findNode(std::string pathname){
-            if(pathname.back() == ':')
-                pathname = pathname.substr(0,pathname.length()-1);
-            if(pathname[0] == '/')
-                pathname = pathname.substr(1);
-            int i = pathname.find("/");
-            std::string dir = pathname.substr(0, i);
-            if(this->name != dir) return NULL;
-            if(i==-1) return this;
-            pathname = pathname.substr(i+1);
-            dirNode *node, *child = this->firstChild;
-            while(child != NULL){
-                node = child->findNode(pathname);
-                if(node != NULL) return node;
-                child = child->nextSibling;
+            dirTokenizer path = dirTokenizer(pathname);
+            std::string dir = path.next();
+            dirNode *cur = this;
+
+            if(cur->name != dir) return NULL;
+            dir = path.next();
+            if(dir == "") return cur;
+            cur = cur->firstChild;
+            while(cur != NULL){
+                if(cur->name != dir){
+                    cur = cur->nextSibling;
+                    continue;
+                }
+                dir = path.next();
+                if(dir == "") return cur;
+                else cur = cur->firstChild;
             }
-            return NULL;
+            return cur;
+
+//            if(pathname.back() == ':')
+//                pathname = pathname.substr(0,pathname.length()-1);
+//            if(pathname[0] == '/')
+//                pathname = pathname.substr(1);
+//            int i = pathname.find("/");
+//            std::string dir = pathname.substr(0, i);
+//            if(this->name != dir) return NULL;
+//            if(i==-1) return this;
+//            pathname = pathname.substr(i+1);
+//            dirNode *node, *child = this->firstChild;
+//            while(child != NULL){
+//                node = child->findNode(pathname);
+//                if(node != NULL) return node;
+//                child = child->nextSibling;
+//            }
+//            return NULL;
+
+
 
         };
 
@@ -79,16 +100,15 @@ public:
 
 
     void insert(std::string path, std::string name){
-
         if(name == "")
             return;
         if(this->root == NULL){
             this->root = new dirNode(path, name);
             return;
         }
-        if(this->root->findNode(path)){
+        if(this->root->findNode(path))
             return;
-        }
+
         dirNode *temp = this->root;
         while(true){
             if(path.find(temp->path) != std::string::npos) {
@@ -106,36 +126,24 @@ public:
                 temp = temp->nextSibling;
             }
         }
+    }
 
-
-
-       }
-
-       void printTree(std::string path = "/home" ){
+    void printTree(std::string path = "/home" ){
         dirNode *temp = root->findNode(path);
         temp->print(1);
     }
     dirNode * root;
 };
 
-
-
-
 int main(int argc, char* argv[]){
     clock_t tStart = clock();
-
     dirTree *dirTree1 = new dirTree();
-
     std::ifstream inStream("ITUnix");
-    std::string aline;
-
     std::string currentPath;
 
     if(inStream.is_open()){
         for(std::string aline; getline(inStream, aline);)
-//        for(int i =0; i < 2000; i ++)
         {
-//            getline(inStream, aline);
             if(aline.back() == ':'){ // if last char in aline is a : , it is a directory
                 currentPath = aline.substr(0, aline.length()-1);
                 if(currentPath == "/home/")
@@ -143,16 +151,14 @@ int main(int argc, char* argv[]){
 
                 // create tokenizer of path name
                 dirTokenizer *dirTokenizer1 = new dirTokenizer(currentPath);
-                while(!dirTokenizer1->isEmpty()){
+
+                while(!dirTokenizer1->isEmpty())
                     dirTree1->insert(currentPath, dirTokenizer1->next());
-                }
             }
-            else if(aline == ""){
+            else if(aline == "")
                 continue;
-            }
-            else if(aline != ""){
+            else if(aline != "")
                 dirTree1->insert(currentPath + "/" + aline,aline);
-            }
         }
     }
 
@@ -168,11 +174,9 @@ int main(int argc, char* argv[]){
 
     dirTree1->printTree(arg);
 
-
     inStream.close();
 
     printf("Time taken: %.2fs\n", (double)(clock() - tStart)/CLOCKS_PER_SEC);
-
 
     return 0;
 
