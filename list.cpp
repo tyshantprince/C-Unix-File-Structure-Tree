@@ -1,6 +1,8 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+#include <time.h>
+
 
 class dirTokenizer{
 public:
@@ -78,10 +80,9 @@ public:
 
     void insert(std::string path, std::string name){
 
-        if(name == ":")
+        if(name == "")
             return;
         if(this->root == NULL){
-                path = path.substr(0, path.length()-1);
             this->root = new dirNode(path, name);
             return;
         }
@@ -121,6 +122,7 @@ public:
 
 
 int main(int argc, char* argv[]){
+    clock_t tStart = clock();
 
     dirTree *dirTree1 = new dirTree();
 
@@ -130,25 +132,26 @@ int main(int argc, char* argv[]){
     std::string currentPath;
 
     if(inStream.is_open()){
-//        for(std::string line; getline(inStream, line);)
-        for(int i =0; i < 2000; i ++)
+        for(std::string aline; getline(inStream, aline);)
+//        for(int i =0; i < 2000; i ++)
         {
-            getline(inStream, aline);
+//            getline(inStream, aline);
             if(aline.back() == ':'){ // if last char in aline is a : , it is a directory
                 currentPath = aline.substr(0, aline.length()-1);
+                if(currentPath == "/home/")
+                    currentPath = currentPath.substr(0, currentPath.length()-1);
 
                 // create tokenizer of path name
-                dirTokenizer *dirTokenizer1 = new dirTokenizer(aline);
+                dirTokenizer *dirTokenizer1 = new dirTokenizer(currentPath);
                 while(!dirTokenizer1->isEmpty()){
-                    dirTree1->insert(aline, dirTokenizer1->next());
+                    dirTree1->insert(currentPath, dirTokenizer1->next());
                 }
             }
             else if(aline == ""){
+                continue;
             }
             else if(aline != ""){
-                if(aline.find("/") != std::string::npos)
-                    aline = "/" + aline;
-                dirTree1->insert(currentPath+aline,aline);
+                dirTree1->insert(currentPath + "/" + aline,aline);
             }
         }
     }
@@ -159,10 +162,17 @@ int main(int argc, char* argv[]){
         return 0;
     }
 
-    dirTree1->printTree(argv[1]);
+    std::string arg(argv[1]);
+    if(arg.back() == '/')
+        arg = arg.substr(0, arg.length()-1);
+
+    dirTree1->printTree(arg);
 
 
     inStream.close();
+
+    printf("Time taken: %.2fs\n", (double)(clock() - tStart)/CLOCKS_PER_SEC);
+
 
     return 0;
 

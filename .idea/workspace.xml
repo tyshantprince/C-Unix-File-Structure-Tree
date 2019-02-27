@@ -13,8 +13,6 @@
   <component name="ChangeListManager">
     <list default="true" id="f98cb198-308b-4593-97e1-2e98b5238c77" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Assignment2" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Assignment2" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Assignment2.dir/list.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Assignment2.dir/list.cpp.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/list.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/list.cpp" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
@@ -32,33 +30,23 @@
           <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/list.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="50" column="48" selection-start-line="50" selection-start-column="48" selection-end-line="50" selection-end-column="48" />
+            <state relative-caret-position="497">
+              <caret line="160" column="48" lean-forward="true" selection-start-line="160" selection-start-column="48" selection-end-line="160" selection-end-column="48" />
               <folding>
                 <element signature="e#0#19#0" expanded="true" />
-                <element signature="e#58#693#1" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file:///Library/Developer/CommandLineTools/usr/include/c++/v1/string">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="321">
-              <caret line="3588" selection-start-line="3588" selection-end-line="3588" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/cmake-build-debug/ITUnix">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2283592">
-              <caret line="2" column="7" lean-forward="true" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
+            <state relative-caret-position="189">
+              <caret line="12206" column="23" selection-start-line="12206" selection-start-column="19" selection-end-line="12206" selection-end-column="23" />
             </state>
           </provider>
         </entry>
@@ -69,6 +57,7 @@
     <findStrings>
       <find>'</find>
       <find>aline</find>
+      <find>cli2</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -92,7 +81,17 @@
     </navigator>
     <panes>
       <pane id="Scope" />
-      <pane id="ProjectPane" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="Assignment2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Asg2" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -120,7 +119,7 @@
     </option>
   </component>
   <component name="RunManager">
-    <configuration name="Assignment2" type="CMakeRunConfiguration" factoryName="Application" PROGRAM_PARAMS="home/ad.ilstu.edu" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Assignment2" TARGET_NAME="Assignment2" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="Assignment2" RUN_TARGET_NAME="Assignment2">
+    <configuration name="Assignment2" type="CMakeRunConfiguration" factoryName="Application" PROGRAM_PARAMS="/home/ad.ilstu.edu/cli2/Public/IT279" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Assignment2" TARGET_NAME="Assignment2" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="Assignment2" RUN_TARGET_NAME="Assignment2">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
@@ -138,12 +137,13 @@
       <workItem from="1550764875942" duration="228000" />
       <workItem from="1550864398566" duration="4100000" />
       <workItem from="1550870612979" duration="794000" />
-      <workItem from="1551118886582" duration="10918000" />
+      <workItem from="1551118886582" duration="11810000" />
+      <workItem from="1551293482766" duration="2709000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="20858000" />
+    <option name="totallyTimeSpent" value="24459000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -155,10 +155,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="957" height="1050" extended-state="0" />
+    <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.20327869" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24358974" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -179,33 +179,25 @@
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Database" order="3" />
     </layout>
-    <layout-to-restore>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.10989011" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.28469387" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Database Changes" order="7" />
-      <window_info anchor="bottom" id="Terminal" order="8" />
-      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
-      <window_info anchor="bottom" id="Version Control" order="10" />
-      <window_info anchor="bottom" id="CMake" order="11" />
-      <window_info anchor="bottom" id="Messages" order="12" weight="0.32959184" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Database" order="3" />
-    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/list.cpp</url>
+          <line>89</line>
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
   <component name="editorHistoryManager">
+    <entry file="file://$APPLICATION_CONFIG_DIR$/scratches/scratch.cpp">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file:///Library/Developer/CommandLineTools/usr/include/c++/v1/string">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="321">
@@ -213,27 +205,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/scratches/scratch.cpp">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/list.cpp">
+    <entry file="file://$PROJECT_DIR$/cmake-build-debug/ITUnix">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="50" column="48" selection-start-line="50" selection-start-column="48" selection-end-line="50" selection-end-column="48" />
-          <folding>
-            <element signature="e#0#19#0" expanded="true" />
-            <element signature="e#58#693#1" />
-          </folding>
+        <state relative-caret-position="189">
+          <caret line="12206" column="23" selection-start-line="12206" selection-start-column="19" selection-end-line="12206" selection-end-column="23" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/cmake-build-debug/ITUnix">
+    <entry file="file://$PROJECT_DIR$/list.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2283592">
-          <caret line="2" column="7" lean-forward="true" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
+        <state relative-caret-position="497">
+          <caret line="160" column="48" lean-forward="true" selection-start-line="160" selection-start-column="48" selection-end-line="160" selection-end-column="48" />
+          <folding>
+            <element signature="e#0#19#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
